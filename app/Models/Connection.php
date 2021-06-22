@@ -32,16 +32,17 @@ class Connection extends Model
     {
         switch ($tool) {
             case Tools::REFERER:
-            case Tools::SYNDICATION:
                 return [
                     self::TYPE_FTP,
                     self::TYPE_SFTP,
                 ];
+                break;
             case Tools::DRIP_FEED:
                 return [
                     self::TYPE_MAUTIC,
                     self::TYPE_WEBHOOK
                 ];
+                break;
             default:
                 return [];
         }

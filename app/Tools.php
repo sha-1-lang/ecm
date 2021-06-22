@@ -5,17 +5,13 @@ namespace App;
 class Tools
 {
     const REFERER = 'referer';
-    const SYNDICATION = 'syndication';
     const DRIP_FEED = 'drip_feed';
-    const CUTTER = 'cutter';
 
     public static function all(): array
     {
         return [
             self::REFERER,
-            self::SYNDICATION,
             self::DRIP_FEED,
-            self::CUTTER
         ];
     }
 

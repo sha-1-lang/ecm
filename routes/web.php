@@ -21,8 +21,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () use ($to) {
     Route::redirect('/dashboard', $to)->name('dashboard');
 
     Route::get('test/generate-emails', [\App\Http\Controllers\TestController::class, 'generateEmails']);
-
-    Route::get('cutter', [\App\Http\Controllers\CutterController::class, 'index'])->name('cutter.index');
     Route::resource('connections', \App\Http\Controllers\ConnectionController::class)->only(['index', 'create', 'show']);
     Route::resource('listings', \App\Http\Controllers\ListingController::class)->only(['index', 'create', 'show']);
     Route::get('refresh-mautic', [\App\Http\Controllers\RuleController::class, 'mauticStages']);
@@ -33,8 +31,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () use ($to) {
     Route::post('emailfilter', [\App\Http\Livewire\EmailLogsList::class, 'getEmaillogsProperty']);
     Route::resource('templates', \App\Http\Controllers\TemplateController::class)->only(['index', 'create', 'show', 'edit']);
     Route::resource('pages', \App\Http\Controllers\PageController::class)->only(['index', 'create', 'edit']);
-    Route::resource('contents', \App\Http\Controllers\ContentController::class)->only(['index', 'create', 'edit']);
-    Route::resource('syndications', \App\Http\Controllers\SyndicationController::class)->only(['index', 'create', 'edit']);
     Route::get('DeleteEmailLogs', [\App\Http\Controllers\EmailLogsController::class, 'DeleteEmailLogs']);
     Route::get('DeleteEmailLogs_invalid_email', [\App\Http\Controllers\EmailLogsController::class, 'DeleteEmailLogs_invalid_email']);
     Route::get('SetLogsDeleteCron', [\App\Http\Controllers\EmailLogsController::class, 'SetLogsDeleteCron']);

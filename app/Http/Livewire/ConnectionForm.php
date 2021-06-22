@@ -37,7 +37,6 @@ class ConnectionForm extends Component
         if (! $this->connection->exists) {
             switch ($this->connection->tool) {
                 case Tools::REFERER:
-                case Tools::SYNDICATION:
                     $this->connection->type = Connection::TYPE_FTP;
                     $this->connection->port = 21;
                     break;

@@ -34,25 +34,7 @@ class Navigation extends NavigationDropdown
 
                 ];
                 break;
-            case Tools::SYNDICATION:
-                $links = [
-                    [
-                        'href' => route('connections.index'),
-                        'label' => __('Connections'),
-                        'active' => request()->routeIs('connections.*')
-                    ],
-                    [
-                        'href' => route('contents.index'),
-                        'label' => __('Content'),
-                        'active' => request()->routeIs('contents.*')
-                    ],
-                    [
-                        'href' => route('syndications.index'),
-                        'label' => __('Syndication'),
-                        'active' => request()->routeIs('syndications.*')
-                    ],
-                ];
-                break;
+            
             case Tools::DRIP_FEED:
                 $links = [
                     [
@@ -87,15 +69,7 @@ class Navigation extends NavigationDropdown
                     ]
                 ];
                 break;
-            case Tools::CUTTER:
-                $links = [
-                    [
-                        'href' => route('cutter.index'),
-                        'label' => __('Files Cutter'),
-                        'active' => request()->routeIs('cutter.*')
-                    ]
-                ];
-                break;
+            
             default:
                 $links = [];
                 break;
@@ -111,18 +85,12 @@ class Navigation extends NavigationDropdown
                 'key' => 'referer',
                 'label' => 'Referer'
             ],
-            [
-                'key' => 'syndication',
-                'label' => 'Syndication'
-            ],
+            
             [
                 'key' => 'drip_feed',
                 'label' => 'Drip feed'
             ],
-            [
-                'key' => 'cutter',
-                'label' => 'File cutter'
-            ],
+            
         ];
     }
 
