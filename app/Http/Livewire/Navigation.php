@@ -69,6 +69,21 @@ class Navigation extends NavigationDropdown
                     ]
                 ];
                 break;
+                case Tools::EVENT_CALENDER:
+                $links = [
+                    [
+                        'href' => route('groups.index'),
+                        'label' => __('Groups'),
+                        'active' => request()->routeIs('groups.*')
+                    ],
+                    [
+                        'href' => route('eventcalender.index'),
+                        'label' => __('Events'),
+                        'active' => request()->routeIs('eventcalender.*')
+                    ]
+
+                ];
+                break;
             
             default:
                 $links = [];
@@ -89,6 +104,10 @@ class Navigation extends NavigationDropdown
             [
                 'key' => 'drip_feed',
                 'label' => 'Drip feed'
+            ],
+            [
+                'key' => 'event_calender',
+                'label' => 'Event Calender'
             ],
             
         ];

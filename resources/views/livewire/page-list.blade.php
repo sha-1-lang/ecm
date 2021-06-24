@@ -3,13 +3,14 @@
         <x-slot name="title">
             {{ __('Manage Pages') }}
         </x-slot>
-
+                                
         <x-slot name="content">
             <div class="space-y-6">
                 @if($this->pages->isNotEmpty())
                     @foreach($this->pages as $page)
                         <div class="flex items-center justify-between">
                             <div>
+
                                 <a href="{{ $page->full_url }}" target="_blank">
                                     {{ $page->full_url.'/' }}
                                 </a>
@@ -23,7 +24,6 @@
                                 <a href="{{ $page->full_url.'/' }}" target="_blank" class="cursor-pointer ml-6 text-sm text-gray-400 focus:outline-none">
                                     {{ __('Open') }}
                                 </a>
-
                                 <a href="{{ route('pages.edit', ['page' => $page->id]) }}" class="cursor-pointer ml-6 text-sm text-gray-400 focus:outline-none">
                                     {{ __('Edit') }}
                                 </a>

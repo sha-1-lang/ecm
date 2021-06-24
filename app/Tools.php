@@ -6,12 +6,14 @@ class Tools
 {
     const REFERER = 'referer';
     const DRIP_FEED = 'drip_feed';
-
+    const EVENT_CALENDER='event_calender';
+    
     public static function all(): array
     {
         return [
             self::REFERER,
             self::DRIP_FEED,
+            self::EVENT_CALENDER,
         ];
     }
 

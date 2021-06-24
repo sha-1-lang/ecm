@@ -53,8 +53,8 @@ class MauticCronEmail extends Command
      */
     public function handle()
     {
-      $group = $this->argument('rule_id');
-      $allRules = Rule::where('id',$group)->get();
+      $groupsm = $this->argument('rule_id');
+      $allRules = Rule::where('id',$groupsm)->get();
       if(!empty($allRules)){
         foreach ($allRules as $key => $allRule) {
           if($allRule->status == 'running'){

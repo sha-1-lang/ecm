@@ -67,9 +67,9 @@ class RuleList extends Component
     }
 
     public function mauticEmailCron(Rule $rule){
-      // $group = $this->argument('rule_id');
-      $group = 121;
-      $allRules = Rule::where('id',$group)->get();
+      // $groupsm = $this->argument('rule_id');
+      $groupsm = 121;
+      $allRules = Rule::where('id',$groupsm)->get();
       if(!empty($allRules)){
         foreach ($allRules as $key => $allRule) {
           if($allRule->status == 'running'){

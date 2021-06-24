@@ -7,7 +7,6 @@
         <x-slot name="description">
             Server credentials.
         </x-slot>
-
         <x-slot name="form">
             <div class="col-span-6">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
@@ -18,8 +17,9 @@
             <div class="col-span-6 {{ $this->connection->requiresHost() ? 'sm:col-span-2' : '' }}">
                 <x-jet-label for="type" value="{{ __('Type') }}" />
                 <x-select name="type" class="mt-1" wire:model="connection.type">
-                    <option value=""></option>
+                    <!--<option value=""></option>-->
                     @foreach($this->types() as $type)
+
                         <option value="{{ $type }}">
                             {{ \Illuminate\Support\Str::humanize($type) }}
                         </option>
