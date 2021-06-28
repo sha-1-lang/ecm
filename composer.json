@@ -21,7 +21,8 @@
         "livewire/livewire": "^2.0",
         "mautic/api-library": "^3.0",
         "neverbounce/neverbounce-php": "~4.5.0",
-        "rap2hpoutre/fast-excel": "^3.0"
+        "rap2hpoutre/fast-excel": "^3.0",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
