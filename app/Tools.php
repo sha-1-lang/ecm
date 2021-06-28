@@ -8,6 +8,8 @@ class Tools
     const SYNDICATION = 'syndication';
     const DRIP_FEED = 'drip_feed';
     const CUTTER = 'cutter';
+    const EVENT_CALENDER = 'event_calender';
+
 
     public static function all(): array
     {
