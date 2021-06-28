@@ -18,7 +18,7 @@ class EventCalenderForm extends Component
      public function rules(): array
     {
         return [
-            'event.event_name' => ['required'],
+            'event.event_name' => ['required','string','unique:event,event_name'],
             'event.time' => ['required'],
             'event.location' => ['required', 'string'],
             'event.group_name' => ['required', 'string'],
@@ -40,7 +40,7 @@ class EventCalenderForm extends Component
       
     }
 
-    public function getEventgroupsProperty(){
+    public function getEventGroupsProperty(){
         return Groups::get();
     }
 
@@ -52,7 +52,7 @@ class EventCalenderForm extends Component
             $this->validate();
         }
         $this->event->save();
-
+        $this->redirectRoute('eventcalender.index');
 
     }
 }

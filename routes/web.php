@@ -22,6 +22,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () use ($to) {
 
     Route::get('test/generate-emails', [\App\Http\Controllers\TestController::class, 'generateEmails']);
     Route::resource('connections', \App\Http\Controllers\ConnectionController::class)->only(['index', 'create', 'show']);
+    Route::resource('gmailconnection', \App\Http\Controllers\GmailConnectionController::class)->only(['index', 'create', 'edit']);
+    Route::get('gmailconnection_import', [\App\Http\Controllers\GmailConnectionController::class,'import']);
     Route::resource('groups', \App\Http\Controllers\GroupsController::class)->only(['index', 'create', 'show','edit']);
     Route::resource('eventcalender', \App\Http\Controllers\EventCalender::class)->only(['index', 'create','edit']);
     Route::resource('listings', \App\Http\Controllers\ListingController::class)->only(['index', 'create', 'show']);

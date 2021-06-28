@@ -18,6 +18,7 @@
                 <x-jet-input id="no_of_accounts" type="text" class="mt-1 block w-full" wire:model.defer="group.accounts" />
                 <x-jet-input-error for="group.accounts" class="mt-2" />
             </div>
+            @if(!$this->group->exists)
                 <div class="col-span-2">
                 <div class="groupcheck">
                     <input name="group.selected_group" type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" id="selected_group" wire:model="group.selected_group">
@@ -32,6 +33,7 @@
                 <x-jet-input-error for="group.no_of_groups" class="mt-2" />
                 @endif
                 </div>
+            @endif
         </x-slot>
 
         <x-slot name="actions">

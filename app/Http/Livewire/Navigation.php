@@ -80,6 +80,16 @@ class Navigation extends NavigationDropdown
                         'href' => route('eventcalender.index'),
                         'label' => __('Events'),
                         'active' => request()->routeIs('eventcalender.*')
+                    ],
+                    [
+                        'href' => route('gmailconnection.index'),
+                        'label' => __('Gmail Connection'),
+                        'active' => request()->routeIs('gmailconnection.*')
+                    ],
+                    [
+                        'href' => route('listings.index'),
+                        'label' => __('Lists'),
+                        'active' => request()->routeIs('listings.*')
                     ]
 
                 ];

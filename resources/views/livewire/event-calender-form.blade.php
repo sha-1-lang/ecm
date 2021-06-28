@@ -29,7 +29,7 @@
                 <x-jet-label for="group_name" value="{{ __('Add Group') }}" />
                 <x-select name="group_name" class="mt-1" wire:model="event.group_name">
                     <option value=""></option>
-                    @foreach($this->Eventgroups as $groups)
+                    @foreach($this->EventGroups as $groups)
                     <option value="{{ $groups->id }}">
                         {{ $groups->name }}
                     </option>
@@ -56,3 +56,5 @@
         </x-slot>
     </x-form-section>
 </div>
+
+
