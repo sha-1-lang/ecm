@@ -1,18 +1,13 @@
 <?php
-
 namespace App\Http\Livewire;
-
 use App\Tools;
 use Laravel\Jetstream\Http\Livewire\NavigationDropdown;
-
 class Navigation extends NavigationDropdown
 {
     public string $tool;
-
     public function links(): array
     {
         $this->tool = Tools::current();
-
         switch ($this->tool) {
             case Tools::REFERER:
                 $links = [
@@ -31,7 +26,11 @@ class Navigation extends NavigationDropdown
                         'label' => __('Pages'),
                         'active' => request()->routeIs('pages.*')
                     ],
-
+                    // [
+                    //     'href' => route('accountGroups.index'),
+                    //     'label' => __('Account Groups'),
+                    //     'active' => request()->routeIs('accountGroups.*')
+                    // ],
                 ];
                 break;
             case Tools::SYNDICATION:
@@ -96,14 +95,37 @@ class Navigation extends NavigationDropdown
                     ]
                 ];
                 break;
+                case Tools::EVENT_CALENDER:
+                $links = [
+                    [
+                        'href' => route('groups.index'),
+                        'label' => __('Groups'),
+                        'active' => request()->routeIs('groups.*')
+                    ],
+                    [
+                        'href' => route('eventcalender.index'),
+                        'label' => __('Events'),
+                        'active' => request()->routeIs('eventcalender.*')
+                    ],
+                    [
+                        'href' => route('gmailconnection.index'),
+                        'label' => __('Gmail Connection'),
+                        'active' => request()->routeIs('gmailconnection.*')
+                    ],
+                    [
+                        'href' => route('listings.index'),
+                        'label' => __('Lists'),
+                        'active' => request()->routeIs('listings.*')
+                    ]
+
+                ];
+                  break;
             default:
                 $links = [];
                 break;
         }
-
         return $links;
     }
-
     public function tools(): array
     {
         return [
@@ -123,26 +145,25 @@ class Navigation extends NavigationDropdown
                 'key' => 'cutter',
                 'label' => 'File cutter'
             ],
+            [
+                'key' => 'event_calender',
+                'label' => 'Event Calender'
+            ],
         ];
     }
-
     public function selectTool($tool): void
     {
         $this->tool = $tool;
-
         Tools::switch($tool);
-
         if (count($this->links())) {
             $this->redirect(head($this->links())['href']);
         }
     }
-
     public function getSelectedToolProperty()
     {
         $tools = collect($this->tools());
         return $tools->first(fn ($tool) => $tool['key'] === $this->tool) ?? $tools->first();
     }
-
     public function render()
     {
         return view('navigation-dropdown', [
